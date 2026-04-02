@@ -1,0 +1,11 @@
+const emotions = [
+  { mot: 'langueur', classe: 'noms', categorie: 'emotions', definition: 'État de douceur mélancolique qui rend inactif et contemplatif.', exemple: 'Une douce langueur s\'empara de lui au crépuscule.', synonymes_soutenus: ['alanguissement', 'apathie', 'atonie', 'mollesse'], antonymes: ['vigueur', 'ardeur', 'vivacité'] },
+  { mot: 'affliction', classe: 'noms', categorie: 'emotions', definition: 'Douleur morale profonde causée par un malheur ou une perte.', exemple: 'Son affliction était visible sur son visage défait.', synonymes_soutenus: ['détresse', 'consternation', 'désolation', 'abattement'], antonymes: ['joie', 'allégresse', 'félicité'] },
+  { mot: 'allégresse', classe: 'noms', categorie: 'emotions', definition: 'Joie vive et expansive qui se manifeste avec éclat.', exemple: 'Une allégresse générale s\'empara de la foule.', synonymes_soutenus: ['liesse', 'jubilation', 'exultation', 'félicité'], antonymes: ['tristesse', 'affliction', 'mélancolie'] },
+  { mot: 'consternation', classe: 'noms', categorie: 'emotions', definition: 'Abattement profond causé par une nouvelle accablante.', exemple: 'La consternation se lisait sur tous les visages.', synonymes_soutenus: ['stupéfaction', 'hébétude', 'prostration', 'saisissement'], antonymes: ['sérénité', 'impassibilité', 'indifférence'] },
+  { mot: 'ferveur', classe: 'noms', categorie: 'emotions', definition: 'Ardeur intense et sincère dans un sentiment ou une action.', exemple: 'Il défendait ses idées avec ferveur.', synonymes_soutenus: ['véhémence', 'zèle', 'exaltation', 'effusion'], antonymes: ['indifférence', 'apathie', 'froideur'] },
+  { mot: 'délectation', classe: 'noms', categorie: 'emotions', definition: 'Plaisir savouré lentement et avec raffinement.', exemple: 'Il lisait ce roman avec une délectation visible.', synonymes_soutenus: ['volupté', 'félicité', 'béatitude', 'saveur'], antonymes: ['dégoût', 'aversion', 'répugnance'] },
+  { mot: 'ataraxie', classe: 'noms', categorie: 'emotions', definition: 'État de tranquillité absolue de l\'âme, absence totale de trouble.', exemple: 'Le sage recherchait l\'ataraxie par la méditation.', synonymes_soutenus: ['sérénité', 'quiétude', 'équanimité', 'impassibilité'], antonymes: ['agitation', 'trouble', 'tourment'] },
+]
+
+export default emotions

@@ -1,0 +1,32 @@
+const sensoriels = {
+  vue: [
+    { mot: 'ténébreux', classe: 'adjectifs', categorie: 'sensoriels', sous_categorie: 'vue', definition: 'Plongé dans l\'obscurité, sombre et mystérieux.', exemple: 'Un silence ténébreux régnait dans la forêt.', synonymes_soutenus: ['stygien', 'opaque', 'sépulcral', 'nébuleux'], antonymes: ['lumineux', 'radieux', 'serein'] },
+    { mot: 'diaphane', classe: 'adjectifs', categorie: 'sensoriels', sous_categorie: 'vue', definition: 'D\'une transparence légère et délicate, presque translucide.', exemple: 'Sa peau diaphane laissait voir les veines bleues de son poignet.', synonymes_soutenus: ['translucide', 'pellucide', 'éthéré', 'immatériel'], antonymes: ['opaque', 'épais', 'mat'] },
+    { mot: 'exsangue', classe: 'adjectifs', categorie: 'sensoriels', sous_categorie: 'vue', definition: 'Pâle à l\'extrême, sans couleur ni énergie visible.', exemple: 'Il revint exsangue de son opération, le visage livide.', synonymes_soutenus: ['livide', 'blafard', 'hâve', 'cadavérique'], antonymes: ['coloré', 'rubicond', 'vigoureux'] },
+    { mot: 'fulgurant', classe: 'adjectifs', categorie: 'sensoriels', sous_categorie: 'vue', definition: 'Qui frappe avec une intensité soudaine et aveuglante comme un éclair.', exemple: 'Un éclair fulgurant déchira le ciel nocturne.', synonymes_soutenus: ['foudroyant', 'éblouissant', 'aveuglant', 'fulgide'], antonymes: ['terne', 'atténué', 'progressif'] },
+  ],
+  ouie: [
+    { mot: 'strident', classe: 'adjectifs', categorie: 'sensoriels', sous_categorie: 'ouie', definition: 'D\'un son aigu et perçant qui blesse l\'oreille.', exemple: 'Un sifflement strident traversa la salle.', synonymes_soutenus: ['perçant', 'aigu', 'acéré', 'déchirant'], antonymes: ['grave', 'sourd', 'feutré'] },
+    { mot: 'sourd', classe: 'adjectifs', categorie: 'sensoriels', sous_categorie: 'ouie', definition: 'Peu sonore, étouffé, qui parvient difficilement à l\'oreille.', exemple: 'Un grondement sourd montait des profondeurs de la terre.', synonymes_soutenus: ['étouffé', 'assourdi', 'feutré', 'mat'], antonymes: ['éclatant', 'retentissant', 'strident'] },
+    { mot: 'mélodieux', classe: 'adjectifs', categorie: 'sensoriels', sous_categorie: 'ouie', definition: 'Dont le son est doux, harmonieux et agréable à l\'oreille.', exemple: 'Sa voix mélodieuse apaisait les esprits agités.', synonymes_soutenus: ['harmonieux', 'euphonique', 'suave', 'musical'], antonymes: ['discordant', 'cacophonique', 'strident'] },
+    { mot: 'tonitruant', classe: 'adjectifs', categorie: 'sensoriels', sous_categorie: 'ouie', definition: 'Qui fait un bruit de tonnerre, retentissant avec fracas.', exemple: 'Il entra avec un rire tonitruant qui figea l\'assemblée.', synonymes_soutenus: ['tonnant', 'retentissant', 'fracassant', 'assourdissant'], antonymes: ['silencieux', 'feutré', 'discret'] },
+  ],
+  odorat: [
+    { mot: 'fétide', classe: 'adjectifs', categorie: 'sensoriels', sous_categorie: 'odorat', definition: 'Qui répand une odeur très désagréable et nauséabonde.', exemple: 'Une odeur fétide s\'échappait des égouts.', synonymes_soutenus: ['méphitique', 'putride', 'pestilentiel', 'infect'], antonymes: ['odorant', 'parfumé', 'suave'] },
+    { mot: 'âcre', classe: 'adjectifs', categorie: 'sensoriels', sous_categorie: 'odorat', definition: 'D\'une odeur forte, piquante et irritante.', exemple: 'Une fumée âcre envahit la pièce.', synonymes_soutenus: ['mordant', 'âpre', 'caustique', 'corrosif'], antonymes: ['doux', 'suave', 'délicat'] },
+    { mot: 'suave', classe: 'adjectifs', categorie: 'sensoriels', sous_categorie: 'odorat', definition: 'D\'une douceur agréable et délicate qui flatte les sens.', exemple: 'Un parfum suave s\'élevait des roses du jardin.', synonymes_soutenus: ['délicat', 'subtil', 'exquis', 'capiteux'], antonymes: ['âcre', 'fort', 'fétide'] },
+    { mot: 'capiteux', classe: 'adjectifs', categorie: 'sensoriels', sous_categorie: 'odorat', definition: 'Qui monte à la tête, qui enivre par son parfum ou sa saveur.', exemple: 'Un parfum capiteux enveloppait la pièce entière.', synonymes_soutenus: ['enivrant', 'entêtant', 'troublant', 'suave'], antonymes: ['inodore', 'discret', 'neutre'] },
+  ],
+  gout: [
+    { mot: 'âpre', classe: 'adjectifs', categorie: 'sensoriels', sous_categorie: 'gout', definition: 'D\'une saveur rude et astringente, qui racle le palais.', exemple: 'Le vin trop jeune avait un goût âpre et tannique.', synonymes_soutenus: ['astringent', 'acerbe', 'rude', 'âcre'], antonymes: ['doux', 'moelleux', 'onctueux'] },
+    { mot: 'fade', classe: 'adjectifs', categorie: 'sensoriels', sous_categorie: 'gout', definition: 'Sans saveur marquée, insipide et sans caractère gustatif.', exemple: 'Ce bouillon fade n\'avait aucun intérêt culinaire.', synonymes_soutenus: ['insipide', 'insipidum', 'terne', 'sans relief'], antonymes: ['savoureux', 'relevé', 'épicé'] },
+    { mot: 'sapide', classe: 'adjectifs', categorie: 'sensoriels', sous_categorie: 'gout', definition: 'Qui a une saveur prononcée et agréable, plein de goût.', exemple: 'Un mets sapide qui révélait le talent du chef.', synonymes_soutenus: ['savoureux', 'goûteux', 'sapoureux', 'délectable'], antonymes: ['fade', 'insipide', 'inodore'] },
+  ],
+  toucher: [
+    { mot: 'rêche', classe: 'adjectifs', categorie: 'sensoriels', sous_categorie: 'toucher', definition: 'Rude et rugueux au toucher, qui accroche la peau.', exemple: 'Le tissu rêche lui irritait la peau.', synonymes_soutenus: ['rugueux', 'âpre', 'granuleux', 'raboteux'], antonymes: ['doux', 'soyeux', 'lisse'] },
+    { mot: 'moelleux', classe: 'adjectifs', categorie: 'sensoriels', sous_categorie: 'toucher', definition: 'Doux et agréable au toucher, souple avec une légère résistance.', exemple: 'Il s\'enfonça dans le fauteuil moelleux avec soulagement.', synonymes_soutenus: ['douillet', 'souple', 'onctueux', 'velouté'], antonymes: ['dur', 'rigide', 'rêche'] },
+    { mot: 'visqueux', classe: 'adjectifs', categorie: 'sensoriels', sous_categorie: 'toucher', definition: 'Gluant et collant, d\'une consistance épaisse et poisseuse.', exemple: 'Une substance visqueuse recouvrait les parois de la grotte.', synonymes_soutenus: ['gluant', 'poisseux', 'sirupeux', 'glutineux'], antonymes: ['fluide', 'lisse', 'sec'] },
+  ],
+}
+
+export default sensoriels

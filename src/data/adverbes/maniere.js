@@ -1,0 +1,10 @@
+const maniere = [
+  { mot: 'sourdement', classe: 'adverbes', categorie: 'maniere', definition: 'De façon étouffée, sans éclat apparent mais avec une intensité intérieure.', exemple: 'La colère grondait sourdement en lui.', synonymes_soutenus: ['insidieusement', 'feutrément', 'subreptacement'], antonymes: ['bruyamment', 'ouvertement'] },
+  { mot: 'ostensiblement', classe: 'adverbes', categorie: 'maniere', definition: 'D\'une façon délibérément visible pour se faire remarquer.', exemple: 'Il bâilla ostensiblement pour marquer son ennui.', synonymes_soutenus: ['théâtralement', 'affectueusement', 'avec ostentation'], antonymes: ['discrètement', 'subtilement'] },
+  { mot: 'lapidairement', classe: 'adverbes', categorie: 'maniere', definition: 'En peu de mots, avec une concision tranchante.', exemple: 'Il répondit lapidairement sans daigner développer.', synonymes_soutenus: ['laconiquement', 'sobrement', 'succinctement'], antonymes: ['longuement', 'prolixement'] },
+  { mot: 'obliquement', classe: 'adverbes', categorie: 'maniere', definition: 'De façon indirecte ou détournée.', exemple: 'Il l\'observait obliquement sans oser la regarder en face.', synonymes_soutenus: ['latéralement', 'en diagonale', 'de manière détournée'], antonymes: ['directement', 'franchement', 'frontalement'] },
+  { mot: 'assidûment', classe: 'adverbes', categorie: 'maniere', definition: 'Avec une régularité constante et un dévouement soutenu.', exemple: 'Il travaillait assidûment sans jamais fléchir.', synonymes_soutenus: ['opiniâtrement', 'infatigablement', 'laborieusement'], antonymes: ['sporadiquement', 'paresseusement'] },
+  { mot: 'sereinement', classe: 'adverbes', categorie: 'maniere', definition: 'Avec une paix intérieure calme et stable.', exemple: 'Elle affrontait l\'avenir sereinement.', synonymes_soutenus: ['imperturbablement', 'placidement', 'stoïquement'], antonymes: ['anxieusement', 'nerveusement'] },
+]
+
+export default maniere

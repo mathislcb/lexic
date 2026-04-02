@@ -1,0 +1,10 @@
+const caractere = [
+  { mot: 'acrimonie', classe: 'noms', categorie: 'caractere', definition: 'Aigreur mordante dans les paroles ou le comportement.', exemple: 'Il répondit avec une acrimonie qui surprit l\'assemblée.', synonymes_soutenus: ['virulence', 'causticité', 'fiel', 'âpreté'], antonymes: ['douceur', 'bienveillance', 'affabilité'] },
+  { mot: 'aménité', classe: 'noms', categorie: 'caractere', definition: 'Douceur agréable dans les manières et le caractère.', exemple: 'Elle recevait ses invités avec une aménité naturelle.', synonymes_soutenus: ['affabilité', 'urbanité', 'courtoisie', 'suavité'], antonymes: ['rudesse', 'brutalité', 'grossièreté'] },
+  { mot: 'candeur', classe: 'noms', categorie: 'caractere', definition: 'Pureté d\'âme ingénue, innocence naturelle sans artifice.', exemple: 'La candeur de son regard touchait tous ceux qui le rencontraient.', synonymes_soutenus: ['ingénuité', 'naïveté', 'pureté', 'limpidité'], antonymes: ['cynisme', 'perfidie', 'calcul'] },
+  { mot: 'intrépidité', classe: 'noms', categorie: 'caractere', definition: 'Qualité de celui qui ne ressent pas la peur face au danger.', exemple: 'Son intrépidité sur le champ de bataille força l\'admiration.', synonymes_soutenus: ['vaillance', 'hardiesse', 'impavicité', 'bravoure'], antonymes: ['lâcheté', 'couardise', 'pusillanimité'] },
+  { mot: 'clémence', classe: 'noms', categorie: 'caractere', definition: 'Disposition à pardonner, à traiter avec douceur ceux qui sont en faute.', exemple: 'Le juge fit preuve d\'une clémence inattendue.', synonymes_soutenus: ['mansuétude', 'magnanimité', 'miséricorde', 'longanimité'], antonymes: ['sévérité', 'rigueur', 'inflexibilité'] },
+  { mot: 'déférence', classe: 'noms', categorie: 'caractere', definition: 'Respect profond témoigné à quelqu\'un par égard pour sa valeur.', exemple: 'Il s\'adressait à ses aînés avec déférence.', synonymes_soutenus: ['révérence', 'vénération', 'considération', 'égard'], antonymes: ['insolence', 'arrogance', 'mépris'] },
+]
+
+export default caractere

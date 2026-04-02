@@ -1,0 +1,9 @@
+const intellect = [
+  { mot: 'fallacieux', classe: 'adjectifs', categorie: 'intellect', definition: 'Qui cherche à tromper par une apparence de vérité.', exemple: 'Un raisonnement fallacieux qui induisait en erreur.', synonymes_soutenus: ['captieux', 'spécieux', 'sophistique', 'illusoire'], antonymes: ['sincère', 'honnête', 'véridique'] },
+  { mot: 'didactique', classe: 'adjectifs', categorie: 'intellect', definition: 'Qui a pour but d\'instruire, conçu pour faciliter l\'apprentissage.', exemple: 'Son approche didactique rendait les sujets complexes accessibles.', synonymes_soutenus: ['pédagogique', 'heuristique', 'magistral'], antonymes: ['obscur', 'hermétique', 'abscons'] },
+  { mot: 'chimérique', classe: 'adjectifs', categorie: 'intellect', definition: 'Qui n\'existe que dans l\'imagination, sans fondement dans la réalité.', exemple: 'Un projet chimérique auquel personne ne croyait vraiment.', synonymes_soutenus: ['utopique', 'fantasmagorique', 'illusoire', 'onirique'], antonymes: ['réaliste', 'concret', 'pragmatique'] },
+  { mot: 'équivoque', classe: 'adjectifs', categorie: 'intellect', definition: 'Qui peut être interprété de plusieurs façons contradictoires.', exemple: 'Sa réponse équivoque laissa tout le monde perplexe.', synonymes_soutenus: ['amphibologique', 'sibyllin', 'énigmatique', 'ésotérique'], antonymes: ['clair', 'explicite', 'univoque'] },
+  { mot: 'ambivalent', classe: 'adjectifs', categorie: 'intellect', definition: 'Qui présente deux aspects contradictoires coexistant simultanément.', exemple: 'Il avait des sentiments ambivalents envers son pays natal.', synonymes_soutenus: ['équivoque', 'paradoxal', 'antinomique'], antonymes: ['univoque', 'clair', 'tranché'] },
+]
+
+export default intellect

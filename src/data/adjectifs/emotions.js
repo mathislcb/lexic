@@ -1,0 +1,9 @@
+const emotions = [
+  { mot: 'alangui', classe: 'adjectifs', categorie: 'emotions', definition: 'Qui manifeste une douce torpeur, un relâchement de l\'énergie vitale.', exemple: 'Elle restait alanguie dans la chaleur de l\'après-midi.', synonymes_soutenus: ['languissant', 'atone', 'apathique', 'indolent'], antonymes: ['vif', 'alerte', 'vigoureux'] },
+  { mot: 'candide', classe: 'adjectifs', categorie: 'emotions', definition: 'D\'une ingénuité sincère et pure, sans malice ni expérience du monde.', exemple: 'Son regard candide désarmait les plus cyniques.', synonymes_soutenus: ['ingénu', 'naïf', 'pur', 'limpide'], antonymes: ['cynique', 'rusé', 'calculateur'] },
+  { mot: 'éphémère', classe: 'adjectifs', categorie: 'emotions', definition: 'Qui n\'a qu\'une existence très courte et passagère.', exemple: 'La beauté éphémère des fleurs de cerisier.', synonymes_soutenus: ['fugace', 'fugitif', 'transitoire', 'précaire'], antonymes: ['durable', 'pérenne', 'éternel'] },
+  { mot: 'fulminant', classe: 'adjectifs', categorie: 'emotions', definition: 'Qui explose de colère, qui tonne avec véhémence.', exemple: 'Il entra fulminant, les poings serrés.', synonymes_soutenus: ['véhément', 'courroucé', 'irascible', 'foudroyant'], antonymes: ['calme', 'serein', 'placide'] },
+  { mot: 'lacunaire', classe: 'adjectifs', categorie: 'emotions', definition: 'Qui présente des manques importants, incomplet.', exemple: 'Son témoignage était trop lacunaire pour convaincre.', synonymes_soutenus: ['fragmentaire', 'parcellaire', 'tronqué', 'elliptique'], antonymes: ['complet', 'exhaustif', 'intégral'] },
+]
+
+export default emotions

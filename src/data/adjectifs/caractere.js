@@ -1,0 +1,9 @@
+const caractere = [
+  { mot: 'altier', classe: 'adjectifs', categorie: 'caractere', definition: 'Qui manifeste une fierté hautaine, un orgueil naturel et imposant.', exemple: 'Son port altier en imposait à tous.', synonymes_soutenus: ['superbe', 'noble', 'impérieux', 'souverain'], antonymes: ['humble', 'modeste', 'effacé'] },
+  { mot: 'acrimonieux', classe: 'adjectifs', categorie: 'caractere', definition: 'Qui manifeste de l\'aigreur et de la rancœur dans ses propos.', exemple: 'Ses remarques acrimonieuses blessèrent l\'assemblée.', synonymes_soutenus: ['virulent', 'caustique', 'mordant', 'venimeux'], antonymes: ['bienveillant', 'doux', 'affable'] },
+  { mot: 'docile', classe: 'adjectifs', categorie: 'caractere', definition: 'Qui se laisse diriger sans résistance, naturellement soumis.', exemple: 'Un enfant docile qui suivait les consignes sans rechigner.', synonymes_soutenus: ['complaisant', 'accommodant', 'malléable', 'servile'], antonymes: ['rebelle', 'insoumis', 'récalcitrant'] },
+  { mot: 'cocasse', classe: 'adjectifs', categorie: 'caractere', definition: 'D\'une drôlerie bizarre et inattendue qui fait rire par son étrangeté.', exemple: 'Une situation cocasse qui détendit l\'atmosphère.', synonymes_soutenus: ['bouffon', 'grotesque', 'loufoque', 'farfelu'], antonymes: ['sérieux', 'grave', 'solennel'] },
+  { mot: 'clairvoyant', classe: 'adjectifs', categorie: 'caractere', definition: 'Qui voit les choses avec lucidité et perspicacité.', exemple: 'Son analyse clairvoyante impressionna ses collègues.', synonymes_soutenus: ['sagace', 'perspicace', 'pénétrant', 'acéré'], antonymes: ['aveugle', 'naïf', 'obtus'] },
+]
+
+export default caractere
