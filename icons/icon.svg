@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180">
+  <rect width="180" height="180" rx="40" fill="#534AB7"/>
+  <text x="90" y="72" font-family="Georgia, serif" font-size="52" font-weight="bold" fill="#EEEDFE" text-anchor="middle">L</text>
+  <text x="90" y="118" font-family="Georgia, serif" font-size="22" fill="#AFA9EC" text-anchor="middle">lexic</text>
+  <circle cx="52" cy="52" r="6" fill="#7F77DD" opacity="0.5"/>
+  <circle cx="128" cy="128" r="6" fill="#7F77DD" opacity="0.5"/>
+  <circle cx="128" cy="52" r="4" fill="#AFA9EC" opacity="0.4"/>
+</svg>
