@@ -1,25 +1,28 @@
-function WordCard({ word }) {
+function WordCard({ word, onRetour }) {
   return (
-    <div className="word-card">
-      <div className="word-header">
-        <span className="word-title">{word.mot}</span>
-        <span className="word-class">{word.classe}</span>
+    <div className="fiche-mot">
+      {onRetour && (
+        <button className="fiche-retour" onClick={onRetour}>← Retour</button>
+      )}
+      <div className="fiche-top">
+        <p className="fiche-classe">{word.classe}</p>
+        <p className="fiche-titre">{word.mot}</p>
+        {word.categorie && (
+          <p className="fiche-categorie">{word.categorie}</p>
+        )}
       </div>
-
-      <div className="word-body">
-        <div className="word-section">
+      <div className="fiche-body">
+        <div className="fiche-section">
           <label>Définition</label>
           <p>{word.definition}</p>
         </div>
-
-        <div className="word-section">
-          <label>Exemple</label>
-          <p className="exemple">« {word.exemple} »</p>
-        </div>
-
         <div className="divider" />
-
-        <div className="word-section">
+        <div className="fiche-section">
+          <label>Exemple</label>
+          <p className="syn-exemple">« {word.exemple} »</p>
+        </div>
+        <div className="divider" />
+        <div className="fiche-section">
           <label className="label-soutenu">✦ Synonymes soutenus</label>
           <div className="tags-row">
             {word.synonymes_soutenus.map(s => (
@@ -27,24 +30,16 @@ function WordCard({ word }) {
             ))}
           </div>
         </div>
-
-        <div className="word-section">
-          <label>Synonymes courants</label>
-          <div className="tags-row">
-            {word.synonymes.map(s => (
-              <span key={s} className="tag">{s}</span>
-            ))}
+        {word.antonymes && word.antonymes.length > 0 && (
+          <div className="fiche-section">
+            <label>Antonymes</label>
+            <div className="tags-row">
+              {word.antonymes.map(a => (
+                <span key={a} className="tag antonyme">{a}</span>
+              ))}
+            </div>
           </div>
-        </div>
-
-        <div className="word-section">
-          <label>Antonymes</label>
-          <div className="tags-row">
-            {word.antonymes.map(a => (
-              <span key={a} className="tag antonyme">{a}</span>
-            ))}
-          </div>
-        </div>
+        )}
       </div>
     </div>
   )

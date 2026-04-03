@@ -660,3 +660,74 @@ body {
   color: #534AB7;
   font-style: italic;
 }
+
+.fiche-mot {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #f4f3f0;
+}
+
+.fiche-retour {
+  background: #534AB7;
+  border: none;
+  color: #EEEDFE;
+  padding: 16px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+}
+
+.fiche-top {
+  background: #534AB7;
+  padding: 24px 20px 32px;
+  text-align: center;
+}
+
+.fiche-classe {
+  font-size: 11px;
+  color: #CECBF6;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.fiche-titre {
+  font-size: 32px;
+  font-weight: 500;
+  color: #EEEDFE;
+  margin-bottom: 6px;
+}
+
+.fiche-categorie {
+  font-size: 12px;
+  color: #AFA9EC;
+  font-style: italic;
+}
+
+.fiche-body {
+  background: white;
+  margin: 16px;
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.fiche-section label {
+  font-size: 10px;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.fiche-section p {
+  font-size: 14px;
+  color: #444;
+  line-height: 1.6;
+}

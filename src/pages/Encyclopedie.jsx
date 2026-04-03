@@ -17,32 +17,32 @@ const categories = [
 
 const sousCategoriesParClasse = {
   adjectifs: [
-    { id: 'sensoriels', label: 'Sensoriels',             emoji: '👁️' },
+    { id: 'sensoriels', label: 'Sensoriels',              emoji: '👁️' },
     { id: 'emotions',   label: 'Émotions & états d\'âme', emoji: '🎭' },
     { id: 'caractere',  label: 'Caractère & personnalité', emoji: '👤' },
-    { id: 'intellect',  label: 'Intellect & jugement',   emoji: '🧠' },
-    { id: 'temps',      label: 'Temps & existence',      emoji: '⏳' },
-    { id: 'nature',     label: 'Nature & espace',        emoji: '🌿' },
+    { id: 'intellect',  label: 'Intellect & jugement',    emoji: '🧠' },
+    { id: 'temps',      label: 'Temps & existence',       emoji: '⏳' },
+    { id: 'nature',     label: 'Nature & espace',         emoji: '🌿' },
   ],
   noms: [
-    { id: 'sensoriels', label: 'Sensoriels',             emoji: '👁️' },
+    { id: 'sensoriels', label: 'Sensoriels',              emoji: '👁️' },
     { id: 'emotions',   label: 'Émotions & états d\'âme', emoji: '🎭' },
     { id: 'caractere',  label: 'Caractère & personnalité', emoji: '👤' },
-    { id: 'intellect',  label: 'Intellect & jugement',   emoji: '🧠' },
-    { id: 'temps',      label: 'Temps & existence',      emoji: '⏳' },
-    { id: 'nature',     label: 'Nature & espace',        emoji: '🌿' },
+    { id: 'intellect',  label: 'Intellect & jugement',    emoji: '🧠' },
+    { id: 'temps',      label: 'Temps & existence',       emoji: '⏳' },
+    { id: 'nature',     label: 'Nature & espace',         emoji: '🌿' },
   ],
   verbes: [
-    { id: 'sensoriels', label: 'Sensoriels',             emoji: '👁️' },
+    { id: 'sensoriels', label: 'Sensoriels',              emoji: '👁️' },
     { id: 'emotions',   label: 'Émotions & états d\'âme', emoji: '🎭' },
     { id: 'caractere',  label: 'Caractère & personnalité', emoji: '👤' },
-    { id: 'intellect',  label: 'Intellect & jugement',   emoji: '🧠' },
-    { id: 'mouvement',  label: 'Action & mouvement',     emoji: '⚡' },
+    { id: 'intellect',  label: 'Intellect & jugement',    emoji: '🧠' },
+    { id: 'mouvement',  label: 'Action & mouvement',      emoji: '⚡' },
   ],
   adverbes: [
-    { id: 'intensite', label: 'Intensité',  emoji: '🔥' },
-    { id: 'temps',     label: 'Temps',      emoji: '⏳' },
-    { id: 'maniere',   label: 'Manière',    emoji: '🎯' },
+    { id: 'intensite', label: 'Intensité', emoji: '🔥' },
+    { id: 'temps',     label: 'Temps',     emoji: '⏳' },
+    { id: 'maniere',   label: 'Manière',   emoji: '🎯' },
   ],
   expressions: [
     { id: 'sansReference', label: 'Sans référence', emoji: '💬' },
@@ -68,6 +68,23 @@ const parCategorieParClasse = {
 
 const normalize = str =>
   str.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+
+function ListeMots({ mots, onOuvrirMot }) {
+  return (
+    <div className="mots-list">
+      {mots.map(mot => (
+        <div key={mot.mot} className="mot-item" onClick={() => onOuvrirMot(mot)}>
+          <div className="mot-item-gauche">
+            <span className="mot-item-titre">{mot.mot}</span>
+            {mot.origine && <span className="mot-item-origine">📚 {mot.origine}</span>}
+            <span className="mot-item-def">{mot.definition.slice(0, 55)}…</span>
+          </div>
+          <span className="mot-item-arrow">›</span>
+        </div>
+      ))}
+    </div>
+  )
+}
 
 function Encyclopedie() {
   const [vue, setVue] = useState('accueil')
@@ -110,9 +127,13 @@ function Encyclopedie() {
       if (sensSousCat) setVue('sens')
       else if (sousCatActive) setVue('sous_categorie')
       else setVue('categorie')
-    } else if (vue === 'sens') setVue('sous_categorie')
-    else if (vue === 'sous_categorie') setVue('categorie')
-    else setVue('accueil')
+    } else if (vue === 'sens') {
+      setVue('sous_categorie')
+    } else if (vue === 'sous_categorie') {
+      setVue('categorie')
+    } else if (vue === 'categorie') {
+      setVue('accueil')
+    }
   }
 
   function handleInput(e) {
@@ -135,34 +156,11 @@ function Encyclopedie() {
   const cat = catActive ? categories.find(c => c.id === catActive) : null
   const parCat = catActive ? parCategorieParClasse[catActive] : null
 
-  function ListeMots({ mots }) {
-    return (
-      <div className="mots-list">
-        {mots.map(mot => (
-          <div key={mot.mot} className="mot-item" onClick={() => ouvrirMot(mot)}>
-            <div className="mot-item-gauche">
-              <span className="mot-item-titre">{mot.mot}</span>
-              {mot.origine && <span className="mot-item-origine">📚 {mot.origine}</span>}
-              <span className="mot-item-def">{mot.definition.slice(0, 55)}…</span>
-            </div>
-            <span className="mot-item-arrow">›</span>
-          </div>
-        ))}
-      </div>
-    )
-  }
-
   // Fiche mot
   if (vue === 'fiche' && motOuvert) {
     return (
       <div className="encyclopedie">
-        <div className="page-entete" style={{ background: cat?.color, color: cat?.text }}>
-          <button className="retour-btn" style={{ color: cat?.text }} onClick={retour}>← Retour</button>
-          <span className="entete-titre">{motOuvert.mot}</span>
-        </div>
-        <div className="fiche-content">
-          <WordCard word={motOuvert} />
-        </div>
+        <WordCard word={motOuvert} onRetour={retour} />
       </div>
     )
   }
@@ -177,7 +175,7 @@ function Encyclopedie() {
           <span className="entete-titre">{sensSousCat.emoji} {sensSousCat.label}</span>
           <span className="entete-count">{mots.length} mots</span>
         </div>
-        <ListeMots mots={mots} />
+        <ListeMots mots={mots} onOuvrirMot={ouvrirMot} />
       </div>
     )
   }
@@ -218,7 +216,7 @@ function Encyclopedie() {
           <span className="entete-titre">{sousCatActive.emoji} {sousCatActive.label}</span>
           <span className="entete-count">{mots.length} mots</span>
         </div>
-        <ListeMots mots={mots} />
+        <ListeMots mots={mots} onOuvrirMot={ouvrirMot} />
       </div>
     )
   }
@@ -292,7 +290,7 @@ function Encyclopedie() {
             ))}
           </div>
         )}
-        {result && <WordCard word={result} />}
+        {result && <WordCard word={result} onRetour={() => setResult(null)} />}
         {query.length > 1 && suggestions.length === 0 && !result && (
           <p className="not-found">Aucun résultat pour « {query} »</p>
         )}
