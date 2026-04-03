@@ -7,11 +7,11 @@ import nature from './nature'
 
 const noms = [
   ...Object.values(sensoriels).flat(),
-  ...emotions,
+  ...Object.values(emotions).flat(),
   ...caractere,
   ...intellect,
   ...temps,
-  ...nature,
+  ...Object.values(nature).flat(),
 ]
 
 export const parCategorie = {
