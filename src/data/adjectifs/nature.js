@@ -1,7 +1,33 @@
-const nature = [
-  { mot: 'aride', classe: 'adjectifs', categorie: 'nature', definition: 'Dépourvu de toute richesse, de toute chaleur ou fertilité.', exemple: 'Un paysage aride s\'étendait à perte de vue.', synonymes_soutenus: ['desséché', 'désolé', 'austère', 'stérile'], antonymes: ['fertile', 'riche', 'fécond'] },
-  { mot: 'glacial', classe: 'adjectifs', categorie: 'nature', definition: 'D\'un froid extrême ou d\'une froideur hostile et distante.', exemple: 'Un vent glacial balayait la plaine déserte.', synonymes_soutenus: ['sibérien', 'frigide', 'arctique', 'polaire'], antonymes: ['chaleureux', 'tiède', 'clément'] },
-  { mot: 'contigu', classe: 'adjectifs', categorie: 'nature', definition: 'Qui est en contact direct, qui touche immédiatement.', exemple: 'Les deux parcelles contiguës furent réunies en un seul domaine.', synonymes_soutenus: ['adjacent', 'limitrophe', 'mitoyen', 'juxtaposé'], antonymes: ['distant', 'éloigné', 'séparé'] },
-]
+const nature = {
+  eau: [
+    { mot: 'diaphane', classe: 'adjectifs', categorie: 'nature', sous_categorie: 'eau', definition: 'D\'une transparence légère et délicate, presque translucide comme l\'eau.', exemple: 'Sa peau diaphane laissait voir les veines bleues de son poignet.', synonymes_soutenus: ['translucide', 'pellucide', 'éthéré', 'limpide'], antonymes: ['opaque', 'épais', 'mat'] },
+    { mot: 'limpide', classe: 'adjectifs', categorie: 'nature', sous_categorie: 'eau', definition: 'D\'une clarté pure et transparente comme une eau de source.', exemple: 'Ses explications limpides dissipèrent toute confusion.', synonymes_soutenus: ['cristallin', 'transparent', 'clair', 'diaphane'], antonymes: ['trouble', 'opaque', 'confus'] },
+    { mot: 'fluide', classe: 'adjectifs', categorie: 'nature', sous_categorie: 'eau', definition: 'Qui coule avec aisance, sans résistance ni rigidité.', exemple: 'Son style fluide rendait la lecture agréable.', synonymes_soutenus: ['coulant', 'souple', 'onctueux', 'glissant'], antonymes: ['rigide', 'épais', 'visqueux'] },
+    { mot: 'moite', classe: 'adjectifs', categorie: 'nature', sous_categorie: 'eau', definition: 'Légèrement humide d\'une sueur fine et désagréable.', exemple: 'Ses mains moites trahissaient son anxiété profonde.', synonymes_soutenus: ['humide', 'suintant', 'tiède', 'poisseux'], antonymes: ['sec', 'aride', 'desséché'] },
+  ],
+  feu: [
+    { mot: 'ardent', classe: 'adjectifs', categorie: 'nature', sous_categorie: 'feu', definition: 'Brûlant d\'une passion ou d\'une chaleur intense.', exemple: 'Un défenseur ardent des droits civiques.', synonymes_soutenus: ['brûlant', 'incandescent', 'fervent', 'enflammé'], antonymes: ['froid', 'tiède', 'indifférent'] },
+    { mot: 'incandescent', classe: 'adjectifs', categorie: 'nature', sous_categorie: 'feu', definition: 'Porté à une chaleur si intense qu\'il émet de la lumière.', exemple: 'La discussion prit une tournure incandescente.', synonymes_soutenus: ['ardent', 'embrasé', 'brûlant', 'lumineux'], antonymes: ['froid', 'éteint', 'tièdede'] },
+    { mot: 'embrasé', classe: 'adjectifs', categorie: 'nature', sous_categorie: 'feu', definition: 'Enflammé avec une intensité totale, consumé par le feu ou la passion.', exemple: 'Le ciel embrasé du couchant les laissa sans voix.', synonymes_soutenus: ['enflammé', 'ardent', 'incandescent', 'rutilant'], antonymes: ['éteint', 'froid', 'terne'] },
+    { mot: 'fulgurant', classe: 'adjectifs', categorie: 'nature', sous_categorie: 'feu', definition: 'Qui frappe comme un éclair de feu, d\'une rapidité et intensité aveuglante.', exemple: 'Une douleur fulgurante lui traversa le bras.', synonymes_soutenus: ['foudroyant', 'éblouissant', 'aveuglant', 'fulgide'], antonymes: ['terne', 'atténué', 'progressif'] },
+  ],
+  terre: [
+    { mot: 'aride', classe: 'adjectifs', categorie: 'nature', sous_categorie: 'terre', definition: 'Dépourvu de toute richesse ou fertilité, desséché.', exemple: 'Un paysage aride s\'étendait à perte de vue.', synonymes_soutenus: ['desséché', 'désolé', 'stérile', 'ingrat'], antonymes: ['fertile', 'riche', 'fécond'] },
+    { mot: 'rocailleux', classe: 'adjectifs', categorie: 'nature', sous_categorie: 'terre', definition: 'Couvert de roches et de cailloux, difficile à parcourir.', exemple: 'Un chemin rocailleux menait au sommet du promontoire.', synonymes_soutenus: ['pierreux', 'escarpé', 'accidenté', 'raboteux'], antonymes: ['plat', 'lisse', 'fertile'] },
+    { mot: 'limoneux', classe: 'adjectifs', categorie: 'nature', sous_categorie: 'terre', definition: 'Chargé de limon, boueux et épais comme la vase des fleuves.', exemple: 'Les eaux limoneuses du fleuve en crue envahissaient les berges.', synonymes_soutenus: ['vaseux', 'boueux', 'fangeux', 'bourbeux'], antonymes: ['clair', 'limpide', 'pur'] },
+    { mot: 'tellurique', classe: 'adjectifs', categorie: 'nature', sous_categorie: 'terre', definition: 'Relatif à la terre, qui émane des profondeurs du sol.', exemple: 'Une force tellurique semblait animer ce paysage primitif.', synonymes_soutenus: ['terrestre', 'souterrain', 'profond', 'primordial'], antonymes: ['céleste', 'aérien', 'éthéré'] },
+  ],
+  air: [
+    { mot: 'éphémère', classe: 'adjectifs', categorie: 'nature', sous_categorie: 'air', definition: 'Léger comme l\'air, qui disparaît aussi vite qu\'il est apparu.', exemple: 'La beauté éphémère des fleurs de cerisier.', synonymes_soutenus: ['fugace', 'fugitif', 'transitoire', 'précaire'], antonymes: ['durable', 'pérenne', 'éternel'] },
+    { mot: 'vaporeux', classe: 'adjectifs', categorie: 'nature', sous_categorie: 'air', definition: 'Léger et flou comme la vapeur, d\'une légèreté immatérielle.', exemple: 'Des voiles vaporeux flottaient au gré du vent.', synonymes_soutenus: ['aérien', 'immatériel', 'léger', 'éthéré'], antonymes: ['dense', 'lourd', 'épais'] },
+    { mot: 'aérien', classe: 'adjectifs', categorie: 'nature', sous_categorie: 'air', definition: 'D\'une légèreté gracieuse qui semble défier la pesanteur.', exemple: 'Sa danse aérienne semblait défier les lois de la gravité.', synonymes_soutenus: ['léger', 'vaporeux', 'éthéré', 'impondérable'], antonymes: ['lourd', 'pesant', 'terrestre'] },
+    { mot: 'venteux', classe: 'adjectifs', categorie: 'nature', sous_categorie: 'air', definition: 'Balayé par des vents fréquents et violents.', exemple: 'La lande venteuse offrait une vue dégagée sur l\'océan.', synonymes_soutenus: ['battu par les vents', 'exposé', 'soufflé'], antonymes: ['calme', 'abrité', 'tranquille'] },
+  ],
+  foudre: [
+    { mot: 'tonitruant', classe: 'adjectifs', categorie: 'nature', sous_categorie: 'foudre', definition: 'Qui fait un bruit de tonnerre, retentissant avec fracas.', exemple: 'Il entra avec un rire tonitruant qui figea l\'assemblée.', synonymes_soutenus: ['tonnant', 'retentissant', 'fracassant', 'assourdissant'], antonymes: ['silencieux', 'feutré', 'discret'] },
+    { mot: 'foudroyant', classe: 'adjectifs', categorie: 'nature', sous_categorie: 'foudre', definition: 'D\'une rapidité et d\'une puissance dévastatrice comme la foudre.', exemple: 'Son succès foudroyant laissa ses concurrents sans réaction.', synonymes_soutenus: ['fulgurant', 'dévastateur', 'écrasant', 'instantané'], antonymes: ['lent', 'progressif', 'graduel'] },
+    { mot: 'électrisant', classe: 'adjectifs', categorie: 'nature', sous_categorie: 'foudre', definition: 'Qui provoque une émotion intense et soudaine comme une décharge électrique.', exemple: 'Son discours électrisant galvanisa toute l\'assemblée.', synonymes_soutenus: ['galvanisant', 'enflammant', 'saisissant', 'vibrant'], antonymes: ['ennuyeux', 'monotone', 'assommant'] },
+  ],
+}
 
 export default nature

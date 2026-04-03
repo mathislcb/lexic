@@ -58,6 +58,23 @@ const sousCategoriesSensoriels = [
   { id: 'toucher', label: 'Toucher', emoji: '✋' },
 ]
 
+const sousCategoriesEmotions = [
+  { id: 'joie',      label: 'Joie',     emoji: '😄' },
+  { id: 'colere',    label: 'Colère',   emoji: '😡' },
+  { id: 'tristesse', label: 'Tristesse', emoji: '😢' },
+  { id: 'degout',    label: 'Dégoût',   emoji: '🤢' },
+  { id: 'surprise',  label: 'Surprise', emoji: '😲' },
+  { id: 'honte',     label: 'Honte',    emoji: '😳' },
+]
+
+const sousCategoriesNature = [
+  { id: 'eau',    label: 'Eau',    emoji: '💧' },
+  { id: 'feu',    label: 'Feu',    emoji: '🔥' },
+  { id: 'terre',  label: 'Terre',  emoji: '🌍' },
+  { id: 'air',    label: 'Air',    emoji: '💨' },
+  { id: 'foudre', label: 'Foudre', emoji: '⚡' },
+]
+
 const parCategorieParClasse = {
   adjectifs: parCatAdjectifs,
   noms: parCatNoms,
@@ -167,7 +184,15 @@ function Encyclopedie() {
 
   // Vue sens
   if (vue === 'sens' && sensSousCat) {
-    const mots = parCat?.sensoriels?.[sensSousCat.id] || []
+    let mots = []
+    if (sousCatActive?.id === 'sensoriels') {
+      mots = parCat?.sensoriels?.[sensSousCat.id] || []
+    } else if (sousCatActive?.id === 'emotions') {
+      mots = parCat?.emotions?.[sensSousCat.id] || []
+    } else if (sousCatActive?.id === 'nature') {
+      mots = parCat?.nature?.[sensSousCat.id] || []
+    }
+
     return (
       <div className="encyclopedie">
         <div className="page-entete" style={{ background: cat?.color, color: cat?.text }}>
@@ -183,6 +208,8 @@ function Encyclopedie() {
   // Sous-catégorie
   if (vue === 'sous_categorie' && sousCatActive) {
     const estSensoriels = sousCatActive.id === 'sensoriels' && parCat?.sensoriels
+    const estEmotions = sousCatActive.id === 'emotions' && parCat?.emotions
+    const estNature = sousCatActive.id === 'nature' && parCat?.nature
 
     if (estSensoriels) {
       return (
@@ -198,6 +225,54 @@ function Encyclopedie() {
                 <div key={sens.id} className="sous-cat-band" onClick={() => ouvrirSens(sens)}>
                   <span className="sous-cat-emoji">{sens.emoji}</span>
                   <span className="sous-cat-label">{sens.label}</span>
+                  <span className="entete-count">{mots.length} mots</span>
+                  <span className="cat-arrow">›</span>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      )
+    }
+
+    if (estEmotions) {
+      return (
+        <div className="encyclopedie">
+          <div className="page-entete" style={{ background: cat?.color, color: cat?.text }}>
+            <button className="retour-btn" style={{ color: cat?.text }} onClick={retour}>← Retour</button>
+            <span className="entete-titre">{sousCatActive.emoji} {sousCatActive.label}</span>
+          </div>
+          <div className="sous-cat-list">
+            {sousCategoriesEmotions.map(emo => {
+              const mots = parCat.emotions[emo.id] || []
+              return (
+                <div key={emo.id} className="sous-cat-band" onClick={() => ouvrirSens(emo)}>
+                  <span className="sous-cat-emoji">{emo.emoji}</span>
+                  <span className="sous-cat-label">{emo.label}</span>
+                  <span className="entete-count">{mots.length} mots</span>
+                  <span className="cat-arrow">›</span>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      )
+    }
+
+    if (estNature) {
+      return (
+        <div className="encyclopedie">
+          <div className="page-entete" style={{ background: cat?.color, color: cat?.text }}>
+            <button className="retour-btn" style={{ color: cat?.text }} onClick={retour}>← Retour</button>
+            <span className="entete-titre">{sousCatActive.emoji} {sousCatActive.label}</span>
+          </div>
+          <div className="sous-cat-list">
+            {sousCategoriesNature.map(nat => {
+              const mots = parCat.nature[nat.id] || []
+              return (
+                <div key={nat.id} className="sous-cat-band" onClick={() => ouvrirSens(nat)}>
+                  <span className="sous-cat-emoji">{nat.emoji}</span>
+                  <span className="sous-cat-label">{nat.label}</span>
                   <span className="entete-count">{mots.length} mots</span>
                   <span className="cat-arrow">›</span>
                 </div>
