@@ -1,23 +1,15 @@
-import sensoriels from './sensoriels'
-import emotions from './emotions'
-import caractere from './caractere'
-import intellect from './intellect'
-import mouvement from './mouvement'
+import adjectifs from './adjectifs/index'
+import noms from './noms/index'
+import verbes from './verbes/index'
+import adverbes from './adverbes/index'
+import expressions from './expressions/index'
 
-const verbes = [
-  ...Object.values(sensoriels).flat(),
-  ...Object.values(emotions).flat(),
-  ...caractere,
-  ...intellect,
-  ...mouvement,
+const vocabulary = [
+  ...adjectifs,
+  ...noms,
+  ...verbes,
+  ...adverbes,
+  ...expressions,
 ]
 
-export const parCategorie = {
-  sensoriels,
-  emotions,
-  caractere,
-  intellect,
-  mouvement,
-}
-
-export default verbes
+export default vocabulary
