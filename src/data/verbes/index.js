@@ -3,6 +3,7 @@ import emotions from './emotions'
 import caractere from './caractere'
 import intellect from './intellect'
 import mouvement from './mouvement'
+import divers from './divers'
 
 const verbes = [
   ...Object.values(sensoriels).flat(),
@@ -10,6 +11,7 @@ const verbes = [
   ...caractere,
   ...intellect,
   ...mouvement,
+  ...divers,
 ]
 
 export const parCategorie = {
