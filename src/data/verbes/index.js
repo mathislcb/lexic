@@ -6,7 +6,7 @@ import mouvement from './mouvement'
 
 const verbes = [
   ...Object.values(sensoriels).flat(),
-  ...emotions,
+  ...Object.values(emotions).flat(),
   ...caractere,
   ...intellect,
   ...mouvement,
