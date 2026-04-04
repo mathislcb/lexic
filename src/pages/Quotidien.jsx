@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import motsDuJour from '../data/motsDuJour'
 
 function seededRandom(seed) {
@@ -13,57 +13,52 @@ function melangerAvecGraine(tableau, graine) {
   const arr = [...tableau]
   const rand = seededRandom(graine)
   for (let i = arr.length - 1; i > 0; i--) {
-    const j = Math.floor(rand() * (i + 1));
-    [arr[i], arr[j]] = [arr[j], arr[i]]
+    const j = Math.floor(rand() * (i + 1))
+    ;[arr[i], arr[j]] = [arr[j], arr[i]]
   }
   return arr
 }
 
-function getMotDuJour() {
-  const aujourdhui = new Date()
-  const graine = aujourdhui.getFullYear() * 10000 +
-    (aujourdhui.getMonth() + 1) * 100 +
-    aujourdhui.getDate()
-  const indexJour = Math.floor(
-    (aujourdhui - new Date('2026-04-01')) / (1000 * 60 * 60 * 24)
-  )
-  const motsMelanges = melangerAvecGraine(motsDuJour, 42)
-  const index = Math.abs(indexJour) % motsMelanges.length
-  return { mot: motsMelanges[index] }
+const DEBUT = new Date('2026-01-01')
+const motsMelanges = melangerAvecGraine(motsDuJour, 42)
+
+function getIndexJour(date) {
+  const d = new Date(date.getFullYear(), date.getMonth(), date.getDate())
+  const debut = new Date(DEBUT.getFullYear(), DEBUT.getMonth(), DEBUT.getDate())
+  return Math.floor((d - debut) / (1000 * 60 * 60 * 24))
 }
 
-function getHistorique() {
-  const historique = []
-  const aujourdhui = new Date()
-  const motsMelanges = melangerAvecGraine(motsDuJour, 42)
-
-  for (let i = 1; i <= 6; i++) {
-    const date = new Date(aujourdhui)
-    date.setDate(date.getDate() - i)
-    const indexJour = Math.floor(
-      (date - new Date('2026-04-01')) / (1000 * 60 * 60 * 24)
-    )
-    const index = Math.abs(indexJour) % motsMelanges.length
-    historique.push({
-      date,
-      mot: motsMelanges[index],
-    })
-  }
-  return historique
+function getMotPourDate(date) {
+  const index = getIndexJour(date) % motsMelanges.length
+  return motsMelanges[Math.abs(index)]
 }
 
 function formatDate(date) {
-  return date.toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })
+  return date.toLocaleDateString('fr-FR', {
+    weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'
+  })
 }
 
 function formatDateCourt(date) {
   return date.toLocaleDateString('fr-FR', { day: 'numeric', month: 'short' })
 }
 
+function getHistorique() {
+  const historique = []
+  const aujourdhui = new Date()
+  for (let i = 1; i <= 30; i++) {
+    const date = new Date(aujourdhui)
+    date.setDate(date.getDate() - i)
+    historique.push({ date, mot: getMotPourDate(date) })
+  }
+  return historique
+}
+
 function Quotidien() {
   const [vue, setVue] = useState('main')
   const [motSelectionne, setMotSelectionne] = useState(null)
-  const { mot } = getMotDuJour()
+  const aujourdhui = new Date()
+  const mot = getMotPourDate(aujourdhui)
   const historique = getHistorique()
 
   function ouvrirHistorique(item) {
@@ -107,7 +102,7 @@ function Quotidien() {
   return (
     <div className="quotidien">
       <div className="quotidien-entete">
-        <p className="date-label">{formatDate(new Date())}</p>
+        <p className="date-label">{formatDate(aujourdhui)}</p>
         <button className="historique-btn" onClick={() => setVue('calendrier')}>📅 Historique</button>
       </div>
       <MotCard mot={mot} />
