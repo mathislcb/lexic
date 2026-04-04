@@ -731,3 +731,27 @@ body {
   color: #444;
   line-height: 1.6;
 }
+
+.syn-card-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.voir-fiche-btn {
+  background: #EEEDFE;
+  border: 0.5px solid #AFA9EC;
+  border-top: none;
+  border-radius: 0 0 12px 12px;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: #3C3489;
+  cursor: pointer;
+  text-align: left;
+  font-weight: 500;
+  transition: background 0.1s;
+}
+
+.voir-fiche-btn:hover {
+  background: #CECBF6;
+}
