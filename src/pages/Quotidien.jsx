@@ -34,17 +34,19 @@ function getMotDuJour() {
 
 function getHistorique() {
   const historique = []
-  const debut = new Date('2026-04-01')
   const aujourdhui = new Date()
+  const motsMelanges = melangerAvecGraine(motsDuJour, 42)
 
-  for (let i = 0; i <= 6; i++) {
+  for (let i = 1; i <= 6; i++) {
     const date = new Date(aujourdhui)
     date.setDate(date.getDate() - i)
-    const diffJours = Math.floor((date - debut) / (1000 * 60 * 60 * 24))
-    const index = Math.abs(diffJours) % motsDuJour.length
+    const indexJour = Math.floor(
+      (date - new Date('2026-04-01')) / (1000 * 60 * 60 * 24)
+    )
+    const index = Math.abs(indexJour) % motsMelanges.length
     historique.push({
       date,
-      mot: motsDuJour[index],
+      mot: motsMelanges[index],
     })
   }
   return historique
