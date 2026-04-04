@@ -19,7 +19,7 @@ function melangerAvecGraine(tableau, graine) {
   return arr
 }
 
-const DEBUT = new Date('2026-01-01')
+const DEBUT = new Date('2026-04-01')
 const motsMelanges = melangerAvecGraine(motsDuJour, 42)
 
 function getIndexJour(date) {
@@ -46,9 +46,12 @@ function formatDateCourt(date) {
 function getHistorique() {
   const historique = []
   const aujourdhui = new Date()
+  const debut = new Date('2026-04-01')
+
   for (let i = 1; i <= 30; i++) {
     const date = new Date(aujourdhui)
     date.setDate(date.getDate() - i)
+    if (date < debut) break
     historique.push({ date, mot: getMotPourDate(date) })
   }
   return historique
