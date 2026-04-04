@@ -1,12 +1,35 @@
 import { useState, useEffect } from 'react'
 import motsDuJour from '../data/motsDuJour'
 
+function seededRandom(seed) {
+  let s = seed
+  return function() {
+    s = (s * 1664525 + 1013904223) & 0xffffffff
+    return (s >>> 0) / 0xffffffff
+  }
+}
+
+function melangerAvecGraine(tableau, graine) {
+  const arr = [...tableau]
+  const rand = seededRandom(graine)
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(rand() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]]
+  }
+  return arr
+}
+
 function getMotDuJour() {
-  const debut = new Date('2026-04-01')
   const aujourdhui = new Date()
-  const diffJours = Math.floor((aujourdhui - debut) / (1000 * 60 * 60 * 24))
-  const index = Math.abs(diffJours) % motsDuJour.length
-  return { mot: motsDuJour[index], index: diffJours }
+  const graine = aujourdhui.getFullYear() * 10000 +
+    (aujourdhui.getMonth() + 1) * 100 +
+    aujourdhui.getDate()
+  const indexJour = Math.floor(
+    (aujourdhui - new Date('2026-04-01')) / (1000 * 60 * 60 * 24)
+  )
+  const motsMelanges = melangerAvecGraine(motsDuJour, 42)
+  const index = Math.abs(indexJour) % motsMelanges.length
+  return { mot: motsMelanges[index] }
 }
 
 function getHistorique() {
