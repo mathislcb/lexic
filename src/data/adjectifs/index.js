@@ -8,8 +8,8 @@ import nature from './nature'
 const adjectifs = [
   ...Object.values(sensoriels).flat(),
   ...Object.values(emotions).flat(),
-  ...caractere,
-  ...intellect,
+  ...Object.values(caractere).flat(),
+  ...Object.values(intellect).flat(),
   ...temps,
   ...Object.values(nature).flat(),
 ]
