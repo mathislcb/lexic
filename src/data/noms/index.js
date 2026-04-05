@@ -5,6 +5,7 @@ import intellect from './intellect'
 import temps from './temps'
 import nature from './nature'
 import divers from './divers'
+import richification_mots from './richification_mots'
 
 const noms = [
   ...Object.values(sensoriels).flat(),
@@ -14,6 +15,7 @@ const noms = [
   ...temps,
   ...Object.values(nature).flat(),
   ...divers,
+  ...richification_mots,
 ]
 
 export const parCategorie = {

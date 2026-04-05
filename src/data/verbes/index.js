@@ -4,6 +4,7 @@ import caractere from './caractere'
 import intellect from './intellect'
 import mouvement from './mouvement'
 import divers from './divers'
+import richification_mots from './richification_mots'
 
 const verbes = [
   ...Object.values(sensoriels).flat(),
@@ -12,6 +13,7 @@ const verbes = [
   ...intellect,
   ...mouvement,
   ...divers,
+  ...richification_mots,
 ]
 
 export const parCategorie = {
