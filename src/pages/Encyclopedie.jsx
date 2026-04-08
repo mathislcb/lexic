@@ -97,17 +97,47 @@ const parCategorieParClasse = {
 const normalize = str =>
   str.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
 
-function ListeMots({ mots, onOuvrirMot }) {
+function ListeMots({ mots, onOuvrirMot, connus, toggleConnu, filtre }) {
+  const motsFiltres = mots.filter(mot => {
+    if (filtre === 'connu') return connus[mot.mot] === 'connu'
+    if (filtre === 'inconnu') return connus[mot.mot] === 'inconnu'
+    return true
+  })
+
+  if (motsFiltres.length === 0) {
+    return (
+      <div className="mots-list">
+        <p className="not-found" style={{ padding: '24px', textAlign: 'center' }}>
+          {filtre === 'connu' ? 'Aucun mot connu dans cette catégorie.' : 'Aucun mot à apprendre dans cette catégorie.'}
+        </p>
+      </div>
+    )
+  }
+
   return (
     <div className="mots-list">
-      {mots.map(mot => (
-        <div key={mot.mot} className="mot-item" onClick={() => onOuvrirMot(mot)}>
-          <div className="mot-item-gauche">
+      {motsFiltres.map(mot => (
+        <div key={mot.mot} className="mot-item">
+          <div className="mot-item-gauche" onClick={() => onOuvrirMot(mot)}>
             <span className="mot-item-titre">{mot.mot}</span>
             {mot.origine && <span className="mot-item-origine">📚 {mot.origine}</span>}
             <span className="mot-item-def">{mot.definition.slice(0, 55)}…</span>
           </div>
-          <span className="mot-item-arrow">›</span>
+          <div className="mot-item-droite">
+            <button
+              className={`connaissance-btn ${connus[mot.mot] === 'connu' ? 'btn-connu' : connus[mot.mot] === 'inconnu' ? 'btn-inconnu' : ''}`}
+              onClick={e => {
+                e.stopPropagation()
+                const actuel = connus[mot.mot]
+                if (!actuel) toggleConnu(mot.mot, 'connu')
+                else if (actuel === 'connu') toggleConnu(mot.mot, 'inconnu')
+                else toggleConnu(mot.mot, null)
+              }}
+            >
+              {connus[mot.mot] === 'connu' ? '✅' : connus[mot.mot] === 'inconnu' ? '❌' : '○'}
+            </button>
+            <span className="mot-item-arrow" onClick={() => onOuvrirMot(mot)}>›</span>
+          </div>
         </div>
       ))}
     </div>
@@ -132,7 +162,40 @@ function SousCatList({ entete, items, getCount, onClick }) {
   )
 }
 
-function Encyclopedie() {
+function FiltreConnaissance({ filtre, setFiltre, connus, mots }) {
+  const nbConnus = mots.filter(m => connus[m.mot] === 'connu').length
+  const nbInconnus = mots.filter(m => connus[m.mot] === 'inconnu').length
+  return (
+    <div className="connaissance-filtres">
+      <button
+        className={`connaissance-case ${filtre === 'tous' ? 'actif' : ''}`}
+        onClick={() => setFiltre('tous')}
+      >
+        <span>📚</span>
+        <span>Tous</span>
+        <span className="case-count">{mots.length}</span>
+      </button>
+      <button
+        className={`connaissance-case ${filtre === 'connu' ? 'actif' : ''}`}
+        onClick={() => setFiltre('connu')}
+      >
+        <span>✅</span>
+        <span>Je connais</span>
+        <span className="case-count">{nbConnus}</span>
+      </button>
+      <button
+        className={`connaissance-case ${filtre === 'inconnu' ? 'actif' : ''}`}
+        onClick={() => setFiltre('inconnu')}
+      >
+        <span>📝</span>
+        <span>À apprendre</span>
+        <span className="case-count">{nbInconnus}</span>
+      </button>
+    </div>
+  )
+}
+
+function Encyclopedie({ connus, toggleConnu }) {
   const [vue, setVue] = useState('accueil')
   const [catActive, setCatActive] = useState(null)
   const [sousCatActive, setSousCatActive] = useState(null)
@@ -141,6 +204,7 @@ function Encyclopedie() {
   const [suggestions, setSuggestions] = useState([])
   const [result, setResult] = useState(null)
   const [motOuvert, setMotOuvert] = useState(null)
+  const [filtre, setFiltre] = useState('tous')
 
   function ouvrirCategorie(catId) {
     setCatActive(catId)
@@ -150,17 +214,20 @@ function Encyclopedie() {
     setQuery('')
     setSuggestions([])
     setResult(null)
+    setFiltre('tous')
   }
 
   function ouvrirSousCategorie(sousCat) {
     setSousCatActive(sousCat)
     setSensSousCat(null)
     setVue('sous_categorie')
+    setFiltre('tous')
   }
 
   function ouvrirSens(sens) {
     setSensSousCat(sens)
     setVue('sens')
+    setFiltre('tous')
   }
 
   function ouvrirMot(mot) {
@@ -234,7 +301,8 @@ function Encyclopedie() {
           <span className="entete-titre">{sensSousCat.emoji} {sensSousCat.label}</span>
           <span className="entete-count">{mots.length} mots</span>
         </div>
-        <ListeMots mots={mots} onOuvrirMot={ouvrirMot} />
+        <FiltreConnaissance filtre={filtre} setFiltre={setFiltre} connus={connus} mots={mots} />
+        <ListeMots mots={mots} onOuvrirMot={ouvrirMot} connus={connus} toggleConnu={toggleConnu} filtre={filtre} />
       </div>
     )
   }
@@ -292,7 +360,8 @@ function Encyclopedie() {
           <span className="entete-titre">{sousCatActive.emoji} {sousCatActive.label}</span>
           <span className="entete-count">{mots.length} mots</span>
         </div>
-        <ListeMots mots={mots} onOuvrirMot={ouvrirMot} />
+        <FiltreConnaissance filtre={filtre} setFiltre={setFiltre} connus={connus} mots={mots} />
+        <ListeMots mots={mots} onOuvrirMot={ouvrirMot} connus={connus} toggleConnu={toggleConnu} filtre={filtre} />
       </div>
     )
   }

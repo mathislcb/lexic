@@ -755,3 +755,473 @@ body {
 .voir-fiche-btn:hover {
   background: #CECBF6;
 }
+
+/* ===== CONNAISSANCE FILTRES ===== */
+.connaissance-filtres {
+  display: flex;
+  gap: 8px;
+  padding: 12px 16px;
+  background: #f5f5f5;
+}
+
+.connaissance-case {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 6px;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  background: white;
+  font-size: 12px;
+  font-weight: 500;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.connaissance-case span:first-child { font-size: 20px; }
+
+.connaissance-case.actif {
+  border-color: #3C3489;
+  color: #3C3489;
+  background: #EEEDFE;
+}
+
+/* ===== COCHE MOT ITEM ===== */
+.mot-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mot-item-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.connaissance-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1.5px solid #ccc;
+  background: white;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s;
+  flex-shrink: 0;
+}
+
+.connaissance-btn.btn-connu { border-color: #4CAF50; background: #E8F5E9; }
+.connaissance-btn.btn-inconnu { border-color: #F44336; background: #FFEBEE; }
+
+/* ===== QUIZZ ===== */
+.quizz-page {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-height: calc(100vh - 130px);
+}
+
+.quizz-header {
+  text-align: center;
+  padding: 8px 0;
+}
+
+.quizz-header h2 {
+  font-size: 26px;
+  font-weight: 700;
+  color: #3C3489;
+  margin: 0 0 4px;
+}
+
+.quizz-subtitle {
+  color: #888;
+  font-size: 14px;
+  margin: 0;
+}
+
+.quizz-meilleure {
+  margin-top: 8px;
+  display: inline-block;
+  background: #FFF8E1;
+  border: 1px solid #FFD54F;
+  border-radius: 20px;
+  padding: 4px 14px;
+  font-size: 13px;
+  color: #F57F17;
+  font-weight: 600;
+}
+
+.quizz-types {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.quizz-type-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  background: white;
+  border-radius: 14px;
+  border: 1.5px solid #E0E0E0;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.15s;
+}
+
+.quizz-type-card:active { transform: scale(0.98); }
+
+.quizz-type-icon { font-size: 28px; flex-shrink: 0; }
+
+.quizz-type-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.quizz-type-info strong { font-size: 15px; color: #222; }
+.quizz-type-info span { font-size: 12px; color: #888; }
+.quizz-type-arrow { font-size: 20px; color: #ccc; }
+
+.quizz-stats-mini {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.stat-mini {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+  border-radius: 12px;
+  padding: 10px 16px;
+  flex: 1;
+  border: 1px solid #eee;
+}
+
+.stat-mini strong { font-size: 20px; color: #3C3489; font-weight: 700; }
+.stat-mini span { font-size: 11px; color: #888; }
+
+.quizz-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.quizz-retour {
+  background: none;
+  border: none;
+  color: #3C3489;
+  font-size: 15px;
+  cursor: pointer;
+  font-weight: 600;
+  padding: 0;
+}
+
+.quizz-score-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #444;
+}
+
+.quizz-serie {
+  background: #FFF3E0;
+  color: #E65100;
+  padding: 2px 10px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+.quizz-card {
+  background: white;
+  border-radius: 18px;
+  padding: 22px 18px;
+  border: 1.5px solid #E0E0E0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.quizz-type-badge {
+  font-size: 12px;
+  color: #3C3489;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.quizz-question {
+  font-size: 17px;
+  color: #222;
+  line-height: 1.5;
+  margin: 0;
+  font-style: italic;
+}
+
+.quizz-choix {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.quizz-choix-btn {
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1.5px solid #E0E0E0;
+  background: white;
+  font-size: 15px;
+  color: #333;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.15s;
+  font-weight: 500;
+}
+
+.quizz-choix-btn.correct { border-color: #4CAF50; background: #E8F5E9; color: #2E7D32; }
+.quizz-choix-btn.incorrect { border-color: #F44336; background: #FFEBEE; color: #C62828; }
+
+.quizz-feedback {
+  border-radius: 14px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  text-align: center;
+}
+
+.feedback-correct { background: #E8F5E9; border: 1px solid #A5D6A7; }
+.feedback-incorrect { background: #FFF8E1; border: 1px solid #FFD54F; }
+
+.feedback-emoji { font-size: 28px; }
+.feedback-mot { font-size: 18px; font-weight: 700; color: #3C3489; }
+.feedback-def { font-size: 13px; color: #555; line-height: 1.4; }
+
+.feedback-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 4px;
+  width: 100%;
+}
+
+.feedback-connais {
+  flex: 1;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1.5px solid #ccc;
+  background: white;
+  font-size: 13px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.feedback-connais.actif { border-color: #4CAF50; background: #E8F5E9; color: #2E7D32; }
+
+.feedback-suivant {
+  flex: 2;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  background: #3C3489;
+  color: white;
+  font-size: 13px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* ===== ONBOARDING ===== */
+.onboarding-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 24px;
+}
+
+.onboarding-card {
+  background: white;
+  border-radius: 24px;
+  padding: 36px 28px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  max-width: 360px;
+  width: 100%;
+  text-align: center;
+}
+
+.onboarding-icon { font-size: 60px; }
+
+.onboarding-titre {
+  font-size: 22px;
+  font-weight: 700;
+  color: #3C3489;
+  margin: 0;
+}
+
+.onboarding-texte {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.onboarding-dots {
+  display: flex;
+  gap: 8px;
+  margin: 4px 0;
+}
+
+.onboarding-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #D0D0D0;
+  transition: background 0.2s;
+}
+
+.onboarding-dot.actif { background: #3C3489; }
+
+.onboarding-actions {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.onboarding-btn-back {
+  padding: 14px 18px;
+  border-radius: 12px;
+  border: 1.5px solid #ccc;
+  background: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.onboarding-btn-next {
+  flex: 1;
+  padding: 14px;
+  border-radius: 12px;
+  border: none;
+  background: #3C3489;
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.onboarding-skip {
+  background: none;
+  border: none;
+  color: #aaa;
+  font-size: 13px;
+  cursor: pointer;
+  margin-top: -6px;
+}
+
+/* ===== CONNAISSANCE FILTRES ===== */
+.connaissance-filtres {
+  display: flex;
+  gap: 8px;
+  padding: 12px 16px;
+  background: #f5f5f5;
+}
+
+.connaissance-case {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 10px 4px;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  background: white;
+  font-size: 11px;
+  font-weight: 500;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.connaissance-case span:first-child { font-size: 18px; }
+
+.connaissance-case .case-count {
+  font-size: 13px;
+  font-weight: 700;
+  color: #333;
+}
+
+.connaissance-case.actif {
+  border-color: #3C3489;
+  color: #3C3489;
+  background: #EEEDFE;
+}
+
+.connaissance-case.actif .case-count { color: #3C3489; }
+
+/* ===== COCHE MOT ITEM ===== */
+.mot-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.mot-item-gauche {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  cursor: pointer;
+}
+
+.mot-item-droite {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.connaissance-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1.5px solid #ccc;
+  background: white;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s;
+  flex-shrink: 0;
+  padding: 0;
+}
+
+.connaissance-btn.btn-connu {
+  border-color: #4CAF50;
+  background: #E8F5E9;
+}
+
+.connaissance-btn.btn-inconnu {
+  border-color: #F44336;
+  background: #FFEBEE;
+}
